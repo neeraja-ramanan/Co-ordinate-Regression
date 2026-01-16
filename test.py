@@ -45,7 +45,6 @@ with torch.no_grad():
         
         coords_pred = model(ct)
         
-        # Loss (use same loss as training!)
         loss = mse_coordinate_loss(coords_pred, coords_gt, presence)
         total_loss += loss.item()
         
