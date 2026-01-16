@@ -487,12 +487,11 @@ class Vit_Tiles_CR(nn.Module):
             hidden_size=hidden_size,
             num_heads=num_heads,
             proj_type="perceptron",
-            pos_embed_type="learnable",  # intra-organ (noop if patch_hw=224)
+            pos_embed_type="learnable",  
             dropout_rate=0.0,
             spatial_dims=2,
         )
 
-        # 🔹 Organ-level positional embedding (THIS IS NEW)
         self.organ_pos_embed = nn.Parameter(
             torch.zeros(1, num_organs, hidden_size)
         )
